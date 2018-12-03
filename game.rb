@@ -1,5 +1,4 @@
 class Game
-  attr_reader :name, :player_1, :player_2
   def initialize(name)
     @name = name
     @player_1 = Player.new('Player 1')
@@ -7,7 +6,7 @@ class Game
   end
 
   def start
-    puts "New Game Started. Welcome #{player_1.name} and #{player_2.name}"
+    puts "New Game Started. Welcome #{@player_1.name} and #{@player_2.name}"
     turn
   end
 
@@ -24,9 +23,9 @@ class Game
 
   def check_score
     if @player_1.is_dead
-      winner(player_2)
+      winner(@player_2)
     elsif @player_2.is_dead
-      winner(player_1)
+      winner(@player_1)
     end
   end
 
